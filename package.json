@@ -7,9 +7,15 @@
     "start-dev": "./node_modules/nodemon/bin/nodemon.js ./bin/www"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
-    "morgan": "~1.9.0"
+    "joi": "^14.3.1",
+    "lodash": "^4.17.11",
+    "morgan": "^1.9.1",
+    "mysql2": "^1.6.5",
+    "nodemon": "^1.18.10",
+    "sequelize": "^5.1.0"
   }
 }
