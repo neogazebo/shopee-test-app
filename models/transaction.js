@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-	const Transaction =  sequelize.define('transaction', {
+	const Transaction = sequelize.define('Transaction', {
 		id: {
 			type: DataTypes.INTEGER(11).UNSIGNED,
 			allowNull: false,
@@ -7,8 +7,7 @@ module.exports = function (sequelize, DataTypes) {
 			autoIncrement: true
 		},
 		trxNo: {
-			type: DataTypes.INTEGER(11),
-			allowNull: true,
+			type: DataTypes.STRING(11),
 			field: 'trx_no'
 		},
 		productId: {
@@ -19,7 +18,7 @@ module.exports = function (sequelize, DataTypes) {
 		createdAt: {
 			type: DataTypes.DATE,
 			allowNull: true,
-			defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+			field: 'created_at'
 		}
 	}, {
 			tableName: 'transaction',
@@ -27,9 +26,9 @@ module.exports = function (sequelize, DataTypes) {
 		});
 
 	Transaction.associate = models => {
-		ExchangeRate.hasOne(models.Product, {
+		Transaction.hasOne(models.Product, {
 			foreignKey: 'id',
-			sourceKey: 'product_id'
+			sourceKey: 'productId'
 		});
 	};
 

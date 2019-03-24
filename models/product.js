@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
 			autoIncrement: true
 		},
 		name: {
-			type: DataTypes.STRING(11),
+			type: DataTypes.STRING(100),
 			defaultValue: ''
 		},
 		taxCode: {
@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
 		createdAt: {
 			type: DataTypes.DATE,
 			allowNull: true,
-			defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+			field: 'created_at'
 		}
 	}, {
 			tableName: 'product',
