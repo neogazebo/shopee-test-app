@@ -1,0 +1,35 @@
+version: '3.3'
+
+services:
+
+    node:
+      build:
+          context: ./node-app
+      ports:
+        - 7000:7000
+      depends_on:
+        - mysql
+      restart: always
+
+    mysql:
+      build:
+        context: ./mysql-db
+      volumes:
+          - ./mysql-db/data/mysql/:/var/lib/mysql
+      expose:
+          - "3306"
+      command: ['--default-authentication-plugin=mysql_native_password', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: 'shopee'
+        MYSQL_USER: admin
+        MYSQL_PASSWORD: admin
+
+    adminer:
+      image: adminer
+      restart: always
+      ports:
+        - 8080:8080
+      depends_on:
+        - mysql
