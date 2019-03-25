@@ -1,21 +1,17 @@
 # shopee-test-app
 
 ## requirement
-nodejs version 8, mysql
+docker docker-compose
 
-## Configure db config
+## Running the app
 ```sh
-$ cd shopee-test-app/configuration
-```
-configuration file in **config.json**
-
-## Install the dependencies and devDependencies and start the server.
-```sh
-$ npm install
-$ npm run start
+$ docker-compose up --build -d
 ```
 
 ## For automation test
 ```sh
+$ docker exec -it shopee-test-app_node_1 /bin/sh
 $ npm run test
 ```
+
+notes: database volume is persistent
