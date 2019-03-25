@@ -1,7 +1,7 @@
 # shopee-test-app
 
 ## requirement
-docker docker-compose
+docker, docker-compose
 
 ## Running the app
 ```sh
